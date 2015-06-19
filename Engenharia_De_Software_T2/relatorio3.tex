@@ -1,0 +1,853 @@
+\documentclass[a4paper,11pt]{article}
+
+\renewcommand\bottomfraction{0.9} % default value: 0.3
+\renewcommand\textfraction{0.1}   % default value: 0.2
+
+\usepackage{caption}
+\usepackage{array}
+\usepackage{fullpage, setspace, url}
+\usepackage{colortbl}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+%\usepackage{algorithm,algorithmic}
+%\definecolor{G6}{rgb}{0.7,0.7,0.7}
+%\newcommand{\fc}{\cellcolor{G6}}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{graphicx} 
+\usepackage{bmpsize}
+\usepackage{pgfgantt}
+
+% pacotes malucões
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{float}
+% fonte
+\usepackage{helvet}
+% coisas de locale
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+
+\addtolength{\textwidth}{2cm}
+\addtolength{\hoffset}{-1cm}
+
+\addtolength{\textheight}{2cm}
+\addtolength{\voffset}{-1cm}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\DUVIDA}[1]{\huge \textbf {\color{red} #1}\normalsize \\} % escreve uma dúvida grandão vermelha
+
+\begin{document}
+% \maketitle
+
+\begin{center}
+    \pagestyle{empty} 
+    % Upper part of the page
+    \textsc{\Large Universidade de São Paulo\\
+    Instituto de Ciências Matemáticas e de Computação\\
+    SSC0130 - Engenharia de Software - Turma A}\\[5.0cm]
+
+    % Title
+    \HRule \\[0.6cm]
+    {\Huge Projeto parte 3\\
+    Modelagem, Teste e Projeto de Interface}\\[0.4cm]
+    \HRule \\[3.5cm]
+
+    % Author and supervisor
+    \begin{minipage}{0.45\textwidth}
+	    \begin{flushleft} \normalsize
+    		\emph{Alunos:}
+    		
+			\[\begin{array}{lr}
+	    		\text{Gil Barbosa Reis} & 8532248 \\
+    			\text{Giovane Cunha Mocellin} & 8778382 \\
+		    	\text{Leonardo Sampaio Ferraz Ribeiro} & 8532300 \\
+				\text{Rogério P. Souza} & 5626341
+    		\end{array}\]
+    	\end{flushleft}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+	    \begin{flushright} \normalsize
+    		\emph{Professora:} \\
+    		Ellen Francine Barbosa
+	    \end{flushright}
+    \end{minipage}
+
+    \vspace{3.0cm}
+
+
+    \vfill
+    % Bottom of the page
+    {\Large São Carlos, SP \\ \today}
+    \thispagestyle{empty} 
+    \newpage
+\end{center}
+
+\pagestyle{plain}
+\setcounter{page}{1}
+\setstretch{1.2}
+\newpage
+
+\tableofcontents
+\listoffigures
+\newpage
+
+\section{Introdução}
+	
+\section{Modelagem}
+
+\subsection{Diagrama de Casos de Uso}
+
+O diagrama de casos de uso está representado na figura \ref{diagrama}, incluída no final deste documento.
+
+\subsection{Casos de Uso Expandidos}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Gerenciar opiniões sobre Jogo \\ \hline
+			\textbf{Atores} &  Usuário  \\ \hline
+			\textbf{Finalidade} &  Criar, atualizar ou apagar uma opinião sobre um jogo cadastrado  \\ \hline
+			\textbf{Visão Geral} & Usuário clica no botão do gerenciador de opiniões, dentro
+da página de um jogo específico ou dentro de sua página de perfil. Alterações são
+feitas à opinião. Ao sair, as alterações serão salvas.  \\ \hline
+			\textbf{Tipo} &  Secundário e não essencial\\ \hline
+			\textbf{Referências Cruzadas} &  R11 \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Buscar um jogo \\ \hline
+			\textbf{Atores} &  Usuário  \\ \hline
+			\textbf{Finalidade} &   Buscar um jogo dentre os cadastrados  \\ \hline
+			\textbf{Visão Geral} &  Usuário escreve um nome na barra de busca, e clica no botão
+de buscar. O sistema mostra todos os resultados da busca.  \\ \hline
+			\textbf{Tipo} &   Primário e essencial \\ \hline
+			\textbf{Referências Cruzadas} &   R7, R8, R9 \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Cadastrar CNPJ \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Incluir jogo \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Alterar senha \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Efetuar login \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Gerenciar interesse \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Gerenciar oferta \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Realizar venda \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Realizar troca \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Alterar estado da oferta \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Controlar transação financeira \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Avaliar transação de compra/troca \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Realizar backup do banco de dados \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Acessar relatórios \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Verificar cadastro do jogo \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Gerenciar propagandas \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+		\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+			\textbf{Caso de Uso} &  Acessar relateorio de vendas \\ \hline
+			\textbf{Atores} &    \\ \hline
+			\textbf{Finalidade} &   \\ \hline
+			\textbf{Visão Geral} &  \\ \hline
+			\textbf{Tipo} &  \\ \hline
+			\textbf{Referências Cruzadas} &  \\ \hline
+			\textbf{Sequência Típica} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate} \\ \hline
+			\textbf{Sequências Alternativas} & 
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\begin{enumerate}
+			\item Ter tolerância no cronograma
+			\end{enumerate}
+			\end{enumerate} \\ \hline
+		\end{tabularx}
+\end{table}
+
+\section{Testes}
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Opinião} & \textbf{Avaliação} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Gerênciar Opiniões}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Busca} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Busca realizada\\ \hline
+			2 & Sequência A1 - Busca inválida & Formato Inválido & Busca não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Buscar Jogos}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Nome} & \textbf{Nascimento} & \textbf{Senha} & \textbf{Confirmação Senha} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Formato Inválido & Formato Inválido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Formato Inválido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Incluir Usuários}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{CNPJ} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Cadastrar CNPJ}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Nome} & \textbf{Descrição} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Incluir Jogo}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Senha Antiga} & \textbf{Senha Nova} & \textbf{Confirmação Senha Nova} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Alterar Senha}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{E-mail} & \textbf{Senha} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Efetuar Login}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Gerenciar Interesse}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Gerenciar Oferta}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Realizar Venda}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Controlar Transação Financeira}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Realizar Troca}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Alterar estado da oferta}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Avaliar transação de compra/troca}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Realizar Backups do Banco de Dados}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Acessar Relatórios}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Verificar Cadastro de Jogo}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso Gerenciar Propagandas}
+	\end{table}
+	\end{center}
+	
+	\begin{center}
+	\begin{table}[H]
+		\begin{tabularx}{\textwidth}{c|X|X|X|X}
+			\textbf{Caso de teste} & \textbf{Cenário} & \textbf{Entrada 1} & \textbf{Entrada 2} & \textbf{Saída Esperada} \\
+			\hline
+			1 & Sequência Típica - Cenário de Sucesso & Formato Válido & Formato Válido & Opinião alterada\\ \hline
+			2 & Sequência A1 - Opinião inválida & Formato Inválido & Formato Válido & Opinião não alterada\\ \hline
+			3 & Sequência A2 - Avaliação inválida & Formato Válido & Formato Inválido & Opinião não alterada\\ \hline
+			
+		\end{tabularx}
+		\caption{Teste Caso de Uso AcessarRrelatório de Vendas}
+	\end{table}
+	\end{center}	
+	
+\section{Projeto de Interface}
+
+O projeto de interface levou em consideração as principais interações usuário sistema, sendo estes a página inicial (figura \ref{home}), o cadastro e login de usuário (figuras \ref{cadastro} e \ref{login}), busca de jogos (figura \ref{busca}) e venda/troca de jogos (figura \ref{detalhe}).
+
+\begin{figure}[!H]
+    		\centering
+        	\includegraphics[width=\textwidth,height=\dimexpr\textheight-3\baselineskip\relax,keepaspectratio]{Home.png}
+        	\caption{Página inicial do sistema}
+     		\label{home}
+\end{figure}
+
+\begin{figure}[!H]
+    		\centering
+        	\includegraphics[width=\textwidth,height=\dimexpr\textheight-3\baselineskip\relax,keepaspectratio]{Cadastro.png}
+        	\caption{Janela modal de login usuário}
+     		\label{cadastro}
+\end{figure}
+
+\begin{figure}[!H]
+    		\centering
+        	\includegraphics[width=\textwidth,height=\dimexpr\textheight-3\baselineskip\relax,keepaspectratio]{Login.png}
+        	\caption{Janela modal de cadastro de novo usuário}
+     		\label{login}
+\end{figure}
+
+\begin{figure}[!H]
+    		\centering
+        	\includegraphics[width=\textwidth,height=\dimexpr\textheight-3\baselineskip\relax,keepaspectratio]{Busca.png}
+        	\caption{Resultado de uma busca de jogo}
+     		\label{busca}
+\end{figure}
+
+\begin{figure}[!H]
+    		\centering
+        	\includegraphics[width=\textwidth,height=\dimexpr\textheight-3\baselineskip\relax,keepaspectratio]{Detalhe.png}
+        	\caption{Página de venda ou troca de jogo, com detalhes do jogo e da oferta}
+     		\label{detalhe}
+\end{figure}
+
+\begin{figure}[!H]
+    		\centering
+        	\includegraphics[width=\textwidth,height=\dimexpr\textheight-3\baselineskip\relax,keepaspectratio]{Busca.png}
+        	\caption{Resultado de uma busca de jogo}
+     		\label{diagrama}
+\end{figure}
+
+\section{Conclusão}
+
+\begin{figure}[!H]
+    		\centering
+        	\includegraphics[width=\textwidth,height=\dimexpr\textheight-3\baselineskip\relax,keepaspectratio]{Diagrama.png}
+        	\caption{Diagrama de Casos de Uso}
+     		\label{diagrama}
+\end{figure}
+    	
+
+\end{document}
